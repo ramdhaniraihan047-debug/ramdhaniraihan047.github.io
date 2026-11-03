@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belajar Pintar – Pelajaran Umum & Agama Islam</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f9f6; --card:#ffffff; --text:#1f2a24; --muted:#5f6f66;
+    --primary:#1b7a4b; --primary-soft:#e3f3ea; --accent:#d9a521; --border:#e2e8e4;
+  }
+  body.dark{
+    --bg:#121815; --card:#1c2420; --text:#e8efe9; --muted:#9db0a5;
+    --primary:#3fbf7f; --primary-soft:#1f3329; --border:#2c3832;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;transition:.2s}
+  a{color:inherit;text-decoration:none}
+  header{background:var(--primary);color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+  .nav{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;padding:12px 16px;flex-wrap:wrap}
+  .logo{font-weight:700;font-size:1.25rem;flex:1}
+  .nav a.link{padding:6px 10px;border-radius:8px;font-size:.9rem}
+  .nav a.link:hover{background:rgba(255,255,255,.15)}
+  .btn-icon{background:rgba(255,255,255,.2);border:none;color:#fff;padding:6px 10px;border-radius:8px;cursor:pointer;font-size:1rem}
+  main{max-width:1100px;margin:auto;padding:20px 16px 60px}
+  .hero{background:linear-gradient(135deg,var(--primary),#0f5132);color:#fff;border-radius:18px;padding:36px 24px;text-align:center;margin-bottom:28px}
+  .hero h1{font-size:1.8rem;margin-bottom:6px}
+  .search{display:flex;max-width:560px;margin:18px auto 0;background:#fff;border-radius:12px;overflow:hidden}
+  .search input{flex:1;border:none;padding:14px;font-size:1rem;font-family:inherit;outline:none;color:#222}
+  .search button{border:none;background:var(--accent);color:#fff;padding:0 20px;font-weight:600;cursor:pointer}
+  h2.section{margin:26px 0 14px;font-size:1.3rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;transition:.15s;cursor:pointer;display:block}
+  .card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 6px 16px rgba(0,0,0,.08)}
+  .card .ico{font-size:1.8rem}
+  .card h3{font-size:1.05rem;margin-top:6px}
+  .card p{font-size:.85rem;color:var(--muted)}
+  .badge{display:inline-block;background:var(--primary-soft);color:var(--primary);font-size:.75rem;padding:2px 10px;border-radius:20px;font-weight:600}
+  .crumb{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+  .crumb a{color:var(--primary)}
+  .list-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px;display:block}
+  .list-item:hover{border-color:var(--primary)}
+  .article{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px}
+  .article h1{font-size:1.6rem;margin-bottom:6px}
+  .article h3{margin:20px 0 8px;color:var(--primary)}
+  .article p,.article li{margin-bottom:8px}
+  .article ul{padding-left:22px}
+  .arab{font-family:'Amiri',serif;font-size:2rem;direction:rtl;text-align:right;line-height:2.4;background:var(--primary-soft);padding:14px 18px;border-radius:12px;margin:12px 0}
+  .latin{font-style:italic;color:var(--muted)}
+  .rumus{font-family:monospace;font-size:1.2rem;background:var(--primary-soft);padding:10px 16px;border-radius:10px;display:inline-block;margin:6px 0}
+  .hikmah{border-left:5px solid var(--accent);background:rgba(217,165,33,.1);padding:14px 18px;border-radius:10px;margin-top:22px}
+  .hijaiyah{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;direction:rtl;margin:12px 0}
+  .hijaiyah div{font-family:'Amiri',serif;font-size:2rem;text-align:center;background:var(--primary-soft);border-radius:10px;padding:6px}
+  .hijaiyah small{display:block;font-family:'Poppins';font-size:.7rem;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin:10px 0}
+  th,td{border:1px solid var(--border);padding:8px;text-align:left}
+  th{background:var(--primary-soft)}
+  .quiz{margin-top:28px;border-top:2px dashed var(--border);padding-top:20px}
+  .q{margin-bottom:18px}
+  .q label{display:block;padding:8px 12px;border:1px solid var(--border);border-radius:10px;margin:6px 0;cursor:pointer}
+  .q label.benar{background:#d4f5e0;border-color:#1b7a4b;color:#124d30}
+  .q label.salah{background:#fbdcdc;border-color:#c0392b;color:#7a1f16}
+  .bahas{font-size:.9rem;color:var(--muted);display:none;margin-top:4px}
+  .btn{background:var(--primary);color:#fff;border:none;padding:12px 22px;border-radius:10px;font-weight:600;cursor:pointer;font-family:inherit}
+  .skor{font-size:1.2rem;font-weight:700;margin-top:12px}
+  .empty{text-align:center;padding:40px;color:var(--muted)}
+  .tabs{display:flex;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+  footer{text-align:center;padding:20px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+  @media(max-width:600px){.hero h1{font-size:1.4rem}.arab{font-size:1.6rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#/" class="logo">📚 Belajar Pintar</a>
+    <a href="#/umum" class="link">Sekolah Umum</a>
+    <a href="#/madrasah" class="link">Madrasah</a>
+    <a href="#/pengayaan" class="link">Pengayaan Islam</a>
+    <button class="btn-icon" id="darkBtn" title="Mode gelap">🌙</button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>© 2025 Belajar Pintar · Materi agama direview oleh guru PAI/ustadz · Prototipe v0.1</footer>
+
+<script>
+/* ================= DATA JENJANG ================= */
+const JENJANG = {
+  sd:  {nama:'SD',  tipe:'umum', ico:'🎒', kelas:[1,2,3,4,5,6],
+        mapel:['Pendidikan Agama Islam','Pendidikan Pancasila','Bahasa Indonesia','Matematika','IPAS','Bahasa Inggris']},
+  smp: {nama:'SMP', tipe:'umum', ico:'📘', kelas:[7,8,9],
+        mapel:['Pendidikan Agama Islam','Pendidikan Pancasila','Bahasa Indonesia','Matematika','IPA','IPS','Bahasa Inggris','Informatika']},
+  sma: {nama:'SMA', tipe:'umum', ico:'🎓', kelas:[10,11,12],
+        mapel:['Pendidikan Agama Islam','Bahasa Indonesia','Matematika','Fisika','Kimia','Biologi','Ekonomi','Sejarah','Geografi']},
+  smk: {nama:'SMK', tipe:'umum', ico:'🛠️', kelas:[10,11,12],
+        mapel:['Pendidikan Agama Islam','Bahasa Indonesia','Matematika','Bahasa Inggris','Informatika','Kejuruan RPL','Kejuruan TKJ']},
+  mi:  {nama:'MI',  tipe:'madrasah', ico:'🌱', kelas:[1,2,3,4,5,6],
+        mapel:["Al-Qur'an Hadis",'Akidah Akhlak','Fikih','SKI','Bahasa Arab','Bahasa Indonesia','Matematika','IPAS']},
+  mts: {nama:'MTs', tipe:'madrasah', ico:'🕌', kelas:[7,8,9],
+        mapel:["Al-Qur'an Hadis",'Akidah Akhlak','Fikih','SKI','Bahasa Arab','Bahasa Indonesia','Matematika','IPA','IPS']},
+  ma:  {nama:'MA',  tipe:'madrasah', ico:'🌙', kelas:[10,11,12],
+        mapel:["Al-Qur'an Hadis",'Akidah Akhlak','Fikih','SKI','Bahasa Arab','Bahasa Indonesia','Matematika','Fisika','Biologi']}
+};
+
+/* ================= DATA MATERI (CONTOH) ================= */
+const MATERI = [
+  {
+    id:'hijaiyah', jenjang:'mi', kelas:1, mapel:"Al-Qur'an Hadis",
+    judul:'Mengenal Huruf Hijaiyah',
+    ringkas:'Belajar 29 huruf hijaiyah sebagai dasar membaca Al-Qur\'an.',
+    isi:`
+      <p>Huruf hijaiyah adalah huruf yang digunakan dalam Al-Qur'an. Jumlahnya ada <b>29 huruf</b> (termasuk hamzah).</p>
+      <h3>Daftar Huruf Hijaiyah</h3>
+      <div class="hijaiyah">
+        ${[['ا','Alif'],['ب','Ba'],['ت','Ta'],['ث','Tsa'],['ج','Jim'],['ح','Ha'],['خ','Kho'],['د','Dal'],['ذ','Dzal'],['ر','Ro'],['ز','Za'],['س','Sin'],['ش','Syin'],['ص','Shod'],['ض','Dhod'],['ط','Tho'],['ظ','Zho'],['ع','\'Ain'],['غ','Ghoin'],['ف','Fa'],['ق','Qof'],['ك','Kaf'],['ل','Lam'],['م','Mim'],['ن','Nun'],['و','Wau'],['ه','Ha'],['ء','Hamzah'],['ي','Ya']]
+          .map(h=>`<div>${h[0]}<small>${h[1]}</small></div>`).join('')}
+      </div>
+      <p>💡 Ayo ucapkan setiap huruf bersama ayah, ibu, atau guru!</p>`,
+    kuis:[
+      {q:'Huruf ب dibaca...', opsi:['Ta','Ba','Tsa','Nun'], jawab:1, bahas:'ب dibaca "Ba", titiknya satu di bawah.'},
+      {q:'Huruf yang titiknya tiga di atas adalah...', opsi:['ت','ب','ث','ن'], jawab:2, bahas:'ث (Tsa) memiliki tiga titik di atas.'},
+      {q:'Jumlah huruf hijaiyah adalah...', opsi:['26','28','29','30'], jawab:2, bahas:'Huruf hijaiyah berjumlah 29 huruf (termasuk hamzah).'}
+    ]
+  },
+  {
+    id:'thaharah-najis', jenjang:'mts', kelas:7, mapel:'Fikih',
+    judul:'Thaharah: Macam-Macam Najis dan Cara Menyucikannya',
+    ringkas:'Memahami najis mukhaffafah, mutawassithah, dan mughallazhah.',
+    isi:`
+      <p><b>Thaharah</b> artinya bersuci. Islam sangat mencintai kebersihan, sebagaimana firman Allah:</p>
+      <div class="arab">إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ</div>
+      <p class="latin">"Sesungguhnya Allah menyukai orang-orang yang bertobat dan menyukai orang-orang yang menyucikan diri." (QS. Al-Baqarah: 222)</p>
+      <h3>Macam-Macam Najis</h3>
+      <table>
+        <tr><th>Jenis</th><th>Contoh</th><th>Cara Menyucikan</th></tr>
+        <tr><td>Mukhaffafah (ringan)</td><td>Air kencing bayi laki-laki yang belum makan selain ASI (di bawah 2 tahun)</td><td>Dipercikkan air hingga merata</td></tr>
+        <tr><td>Mutawassithah (sedang)</td><td>Darah, nanah, kotoran manusia/hewan</td><td>Dibasuh air hingga hilang warna, bau, dan rasanya</td></tr>
+        <tr><td>Mughallazhah (berat)</td><td>Air liur anjing dan babi</td><td>Dibasuh 7 kali, salah satunya dicampur tanah</td></tr>
+      </table>`,
+    kuis:[
+      {q:'Najis air liur anjing termasuk najis...', opsi:['Mukhaffafah','Mutawassithah','Mughallazhah','Ma\'fu'], jawab:2, bahas:'Air liur anjing termasuk najis mughallazhah (berat).'},
+      {q:'Cara menyucikan najis mukhaffafah adalah...', opsi:['Dibasuh 7 kali','Dipercikkan air hingga merata','Dijemur','Digosok tanah'], jawab:1, bahas:'Najis ringan cukup dipercikkan air hingga merata.'},
+      {q:'Darah termasuk najis...', opsi:['Mutawassithah','Mughallazhah','Mukhaffafah','Bukan najis'], jawab:0, bahas:'Darah termasuk najis mutawassithah (sedang).'}
+    ]
+  },
+  {
+    id:'nun-mati', jenjang:'mts', kelas:8, mapel:"Al-Qur'an Hadis",
+    judul:'Hukum Bacaan Nun Mati dan Tanwin',
+    ringkas:'Izhar, Idgham, Iqlab, dan Ikhfa beserta huruf-hurufnya.',
+    isi:`
+      <p>Apabila <b>nun mati (نْ)</b> atau <b>tanwin ( ـًـٍـٌ )</b> bertemu huruf hijaiyah tertentu, cara membacanya berbeda-beda.</p>
+      <table>
+        <tr><th>Hukum</th><th>Huruf</th><th>Cara Membaca</th></tr>
+        <tr><td>Izhar Halqi</td><td style="font-family:Amiri;font-size:1.4rem">ء ه ع ح غ خ</td><td>Dibaca jelas</td></tr>
+        <tr><td>Idgham Bighunnah</td><td style="font-family:Amiri;font-size:1.4rem">ي ن م و</td><td>Dilebur dengan dengung</td></tr>
+        <tr><td>Idgham Bilaghunnah</td><td style="font-family:Amiri;font-size:1.4rem">ل ر</td><td>Dilebur tanpa dengung</td></tr>
+        <tr><td>Iqlab</td><td style="font-family:Amiri;font-size:1.4rem">ب</td><td>Bunyi nun berubah menjadi mim, dengan dengung</td></tr>
+        <tr><td>Ikhfa Haqiqi</td><td>15 huruf sisanya</td><td>Dibaca samar dengan dengung</td></tr>
+      </table>
+      <p>💡 Tips hafalan huruf Idgham Bighunnah: <b>"YaNaMU"</b> (ي ن م و).</p>`,
+    kuis:[
+      {q:'Nun mati bertemu huruf ب hukumnya...', opsi:['Izhar','Ikhfa','Iqlab','Idgham'], jawab:2, bahas:'Nun mati/tanwin bertemu ب hukumnya Iqlab.'},
+      {q:'Huruf Idgham Bilaghunnah adalah...', opsi:['ي dan و','ل dan ر','م dan ن','ء dan ه'], jawab:1, bahas:'Idgham Bilaghunnah hurufnya ل dan ر.'},
+      {q:'Izhar Halqi dibaca dengan cara...', opsi:['Samar','Dengung','Jelas','Dilebur'], jawab:2, bahas:'Izhar artinya jelas, dibaca tanpa dengung.'}
+    ]
+  },
+  {
+    id:'bilangan-bulat', jenjang:'smp', kelas:7, mapel:'Matematika',
+    judul:'Operasi Bilangan Bulat',
+    ringkas:'Penjumlahan, pengurangan, perkalian, dan pembagian bilangan bulat.',
+    isi:`
+      <p>Bilangan bulat terdiri dari bilangan <b>negatif</b>, <b>nol</b>, dan <b>positif</b>: … −3, −2, −1, 0, 1, 2, 3 …</p>
+      <h3>Aturan Perkalian Tanda</h3>
+      <table>
+        <tr><th>Operasi</th><th>Hasil</th><th>Contoh</th></tr>
+        <tr><td>(+) × (+)</td><td>+</td><td>3 × 4 = 12</td></tr>
+        <tr><td>(+) × (−)</td><td>−</td><td>3 × (−4) = −12</td></tr>
+        <tr><td>(−) × (−)</td><td>+</td><td>(−3) × (−4) = 12</td></tr>
+      </table>
+      <h3>Pengurangan</h3>
+      <div class="rumus">a − (−b) = a + b</div>
+      <p>Contoh: 5 − (−3) = 5 + 3 = 8</p>`,
+    hikmah:'Dalam Islam, kejujuran dalam berhitung sangat penting, misalnya saat menimbang dan menakar dalam jual beli. Allah berfirman: "Celakalah bagi orang-orang yang curang (dalam menakar dan menimbang)." (QS. Al-Muthaffifin: 1)',
+    kuis:[
+      {q:'Hasil dari (−6) × (−3) adalah...', opsi:['−18','18','−9','9'], jawab:1, bahas:'Negatif × negatif = positif, jadi hasilnya 18.'},
+      {q:'Hasil dari 7 − (−5) adalah...', opsi:['2','−2','12','−12'], jawab:2, bahas:'7 − (−5) = 7 + 5 = 12.'},
+      {q:'Hasil dari 20 : (−4) adalah...', opsi:['5','−5','16','−16'], jawab:1, bahas:'Positif : negatif = negatif, jadi −5.'}
+    ]
+  },
+  {
+    id:'tekanan', jenjang:'smp', kelas:8, mapel:'IPA',
+    judul:'Tekanan Zat Padat',
+    ringkas:'Hubungan antara gaya, luas bidang tekan, dan tekanan.',
+    isi:`
+      <p><b>Tekanan</b> adalah besarnya gaya yang bekerja pada setiap satuan luas bidang tekan.</p>
+      <div class="rumus">P = F / A</div>
+      <ul>
+        <li><b>P</b> = tekanan (N/m² atau Pascal)</li>
+        <li><b>F</b> = gaya (Newton)</li>
+        <li><b>A</b> = luas bidang tekan (m²)</li>
+      </ul>
+      <h3>Contoh Soal</h3>
+      <p>Sebuah balok dengan gaya 100 N berada di atas bidang seluas 2 m². Berapa tekanannya?</p>
+      <p>P = 100 / 2 = <b>50 N/m²</b></p>
+      <p>💡 Itulah sebabnya pisau yang tajam (luas bidangnya kecil) lebih mudah memotong.</p>`,
+    hikmah:'Rasulullah ﷺ bersabda: "Sesungguhnya Allah telah mewajibkan berbuat baik (ihsan) atas segala sesuatu. Jika kalian menyembelih, maka sembelihlah dengan baik, dan hendaklah salah seorang di antara kalian menajamkan pisaunya dan menenangkan hewan sembelihannya." (HR. Muslim). Konsep tekanan membantu kita memahami mengapa pisau yang tajam lebih memudahkan pekerjaan.',
+    kuis:[
+      {q:'Satuan tekanan dalam SI adalah...', opsi:['Newton','Joule','Pascal','Watt'], jawab:2, bahas:'Satuan tekanan adalah Pascal (N/m²).'},
+      {q:'Gaya 60 N pada luas 3 m² menghasilkan tekanan...', opsi:['20 N/m²','180 N/m²','63 N/m²','57 N/m²'], jawab:0, bahas:'P = 60 / 3 = 20 N/m².'},
+      {q:'Agar tekanan semakin besar, luas bidang tekan harus...', opsi:['Diperbesar','Diperkecil','Tetap','Tidak berpengaruh'], jawab:1, bahas:'Tekanan berbanding terbalik dengan luas bidang tekan.'}
+    ]
+  }
+];
+
+/* ================= DATA PENGAYAAN ================= */
+const PENGAYAAN = [
+  {ico:'🔤', judul:"Iqro' & Hijaiyah", link:'#/materi/hijaiyah'},
+  {ico:'📖', judul:'Tajwid Interaktif', link:'#/materi/nun-mati'},
+  {ico:'🧠', judul:'Tahfidz Juz 30', link:''},
+  {ico:'🤲', judul:'Doa Harian', link:'#/doa'},
+  {ico:'🕌', judul:'Panduan Ibadah', link:''},
+  {ico:'📜', judul:'Kisah Nabi', link:''},
+  {ico:'🗣️', judul:'Bahasa Arab Dasar', link:''}
+];
+
+/* ================= ROUTER ================= */
+const app = document.getElementById('app');
+window.addEventListener('hashchange', render);
+window.addEventListener('load', render);
+
+function render(){
+  const parts = (location.hash.replace('#/','') || '').split('/').map(decodeURIComponent);
+  window.scrollTo(0,0);
+  const [p0,p1,p2,p3] = parts;
+  if(!p0) return home();
+  if(p0==='umum') return tipePage('umum');
+  if(p0==='madrasah') return tipePage('madrasah');
+  if(p0==='pengayaan') return pengayaanPage();
+  if(p0==='doa') return doaPage();
+  if(p0==='cari') return cariPage(p1||'');
+  if(p0==='j' && p1 && !p2) return jenjangPage(p1);
+  if(p0==='j' && p2 && !p3) return kelasPage(p1, +p2);
+  if(p0==='j' && p3) return mapelPage(p1, +p2, p3);
+  if(p0==='materi') return materiPage(p1);
+  app.innerHTML = '<div class="empty">Halaman tidak ditemukan.</div>';
+}
+
+/* ================= HALAMAN ================= */
+function jenjangCards(tipe){
+  return Object.entries(JENJANG).filter(([k,j])=>j.tipe===tipe).map(([k,j])=>`
+    <a class="card" href="#/j/${k}">
+      <div class="ico">${j.ico}</div><h3>${j.nama}</h3>
+      <p>Kelas ${j.kelas[0]}–${j.kelas[j.kelas.length-1]}</p>
+    </a>`).join('');
+}
+
+function home(){
+  app.innerHTML = `
+    <section class="hero">
+      <h1>Belajar Ilmu Umum & Agama Islam</h1>
+      <p>Materi SD, SMP, SMA, SMK, MI, MTs, dan MA sesuai kurikulum</p>
+      <form class="search" onsubmit="event.preventDefault();location.hash='#/cari/'+encodeURIComponent(this.q.value)">
+        <input name="q" placeholder="Cari materi, contoh: tekanan, najis, tajwid...">
+        <button>Cari</button>
+      </form>
+    </section>
+
+    <div class="arab" style="text-align:center">رَبِّ زِدْنِي عِلْمًا</div>
+    <p class="latin" style="text-align:center">"Ya Tuhanku, tambahkanlah ilmu kepadaku." (QS. Thaha: 114) — Doa sebelum belajar</p>
+
+    <h2 class="section">📚 Sekolah Umum</h2>
+    <div class="grid">${jenjangCards('umum')}</div>
+
+    <h2 class="section">🕌 Madrasah</h2>
+    <div class="grid">${jenjangCards('madrasah')}</div>
+
+    <h2 class="section">🔥 Materi Terbaru</h2>
+    ${MATERI.map(listItem).join('')}`;
+}
+
+function tipePage(tipe){
+  app.innerHTML = `
+    <div class="crumb"><a href="#/">Beranda</a> › ${tipe==='umum'?'Sekolah Umum':'Madrasah'}</div>
+    <h2 class="section">${tipe==='umum'?'📚 Sekolah Umum':'🕌 Madrasah'}</h2>
+    <div class="grid">${jenjangCards(tipe)}</div>`;
+}
+
+function jenjangPage(k){
+  const j = JENJANG[k]; if(!j) return render404();
+  app.innerHTML = `
+    <div class="crumb"><a href="#/">Beranda</a> › ${j.nama}</div>
+    <h2 class="section">${j.ico} ${j.nama} — Pilih Kelas</h2>
+    <div class="grid">${j.kelas.map(c=>`
+      <a class="card" href="#/j/${k}/${c}"><div class="ico">🏫</div><h3>Kelas ${c}</h3></a>`).join('')}
+    </div>`;
+}
+
+function kelasPage(k, c){
+  const j = JENJANG[k]; if(!j) return render404();
+  app.innerHTML = `
+    <div class="crumb"><a href="#/">Beranda</a> › <a href="#/j/${k}">${j.nama}</a> › Kelas ${c}</div>
+    <h2 class="section">Mata Pelajaran ${j.nama} Kelas ${c}</h2>
+    <div class="grid">${j.mapel.map(m=>{
+      const n = MATERI.filter(x=>x.jenjang===k && x.kelas===c && x.mapel===m).length;
+      return `<a class="card" href="#/j/${k}/${c}/${encodeURIComponent(m)}">
+        <div class="ico">${ikonMapel(m)}</div><h3>${m}</h3>
+        <p>${n ? n+' materi' : 'Segera hadir'}</p></a>`;
+    }).join('')}</div>`;
+}
+
+function mapelPage(k, c, m){
+  const j = JENJANG[k]; if(!j) return render404();
+  const list = MATERI.filter(x=>x.jenjang===k && x.kelas===c && x.mapel===m);
+  app.innerHTML = `
+    <div class="crumb"><a href="#/">Beranda</a> › <a href="#/j/${k}">${j.nama}</a> › <a href="#/j/${k}/${c}">Kelas ${c}</a> › ${m}</div>
+    <h2 class="section">${ikonMapel(m)} ${m} — ${j.nama} Kelas ${c}</h2>
+    ${list.length ? list.map(listItem).join('') : '<div class="empty">📝 Materi sedang disusun oleh tim penulis.<br>Silakan kembali lagi nanti.</div>'}`;
+}
+
+function materiPage(id){
+  const m = MATERI.find(x=>x.id===id); if(!m) return render404();
+  const j = JENJANG[m.jenjang];
+  app.innerHTML = `
+    <div class="crumb"><a href="#/">Beranda</a> › <a href="#/j/${m.jenjang}">${j.nama}</a> ›
+      <a href="#/j/${m.jenjang}/${m.kelas}">Kelas ${m.kelas}</a> ›
+      <a href="#/j/${m.jenjang}/${m.kelas}/${encodeURIComponent(m.mapel)}">${m.mapel}</a></div>
+    <article class="article">
+      <div class="tabs"><span class="badge">${j.nama} Kelas ${m.kelas}</span><span class="badge">${m.mapel}</span></div>
+      <h1>${m.judul}</h1>
+      ${m.isi}
+      ${m.hikmah ? `<div class="hikmah"><b>🌙 Hikmah</b><br>${m.hikmah}</div>` : ''}
+      ${m.kuis ? kuisHTML(m) : ''}
+    </article>`;
+}
+
+function kuisHTML(m){
+  return `<div class="quiz"><h3>📝 Latihan Soal</h3>
+    <form id="kuisForm">
+    ${m.kuis.map((s,i)=>`
+      <div class="q"><b>${i+1}. ${s.q}</b>
+        ${s.opsi.map((o,oi)=>`<label id="l${i}_${oi}"><input type="radio" name="s${i}" value="${oi}"> ${o}</label>`).join('')}
+        <div class="bahas" id="b${i}">💡 ${s.bahas}</div>
+      </div>`).join('')}
+      <button type="button" class="btn" onclick="cekKuis('${m.id}')">Periksa Jawaban</button>
+      <div class="skor" id="skor"></div>
+    </form></div>`;
+}
+
+function cekKuis(id){
+  const m = MATERI.find(x=>x.id===id); let benar = 0;
+  m.kuis.forEach((s,i)=>{
+    const pilih = document.querySelector(`input[name="s${i}"]:checked`);
+    s.opsi.forEach((_,oi)=>document.getElementById(`l${i}_${oi}`).className='');
+    document.getElementById(`l${i}_${s.jawab}`).classList.add('benar');
+    if(pilih){
+      if(+pilih.value===s.jawab) benar++;
+      else document.getElementById(`l${i}_${pilih.value}`).classList.add('salah');
+    }
+    document.getElementById(`b${i}`).style.display='block';
+  });
+  const nilai = Math.round(benar/m.kuis.length*100);
+  document.getElementById('skor').innerHTML =
+    `Nilai kamu: ${nilai} (${benar}/${m.kuis.length} benar) ${nilai===100?'🎉 MasyaAllah, sempurna!':nilai>=60?'👍 Bagus, terus belajar!':'💪 Ayo pelajari lagi!'}`;
+}
+
+function pengayaanPage(){
+  app.innerHTML = `
+    <div class="crumb"><a href="#/">Beranda</a> › Pengayaan Islam</div>
+    <h2 class="section">🌙 Pengayaan Islam (Untuk Semua Jenjang)</h2>
+    <div class="grid">${PENGAYAAN.map(p=>`
+      <a class="card" href="${p.link||'javascript:alert(\'Segera hadir, insyaAllah\')'}">
+        <div class="ico">${p.ico}</div><h3>${p.judul}</h3>
+        <p>${p.link?'Mulai belajar':'Segera hadir'}</p></a>`).join('')}</div>`;
+}
+
+function doaPage(){
+  const doa = [
+    {judul:'Doa Sebelum Belajar', arab:'رَبِّ زِدْنِي عِلْمًا', latin:'Rabbi zidnī ‘ilmā', arti:'Ya Tuhanku, tambahkanlah ilmu kepadaku. (QS. Thaha: 114)'},
+    {judul:'Basmalah', arab:'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ', latin:'Bismillāhir-raḥmānir-raḥīm', arti:'Dengan nama Allah Yang Maha Pengasih lagi Maha Penyayang.'}
+  ];
+  app.innerHTML = `
+    <div class="crumb"><a href="#/">Beranda</a> › <a href="#/pengayaan">Pengayaan</a> › Doa Harian</div>
+    <h2 class="section">🤲 Doa Harian</h2>
+    ${doa.map(d=>`<div class="article" style="margin-bottom:14px">
+      <h3 style="margin-top:0">${d.judul}</h3>
+      <div class="arab">${d.arab}</div>
+      <p class="latin">${d.latin}</p><p>Artinya: "${d.arti}"</p></div>`).join('')}`;
+}
+
+function cariPage(q){
+  const kw = q.toLowerCase().trim();
+  const hasil = MATERI.filter(m=>(m.judul+' '+m.ringkas+' '+m.mapel).toLowerCase().includes(kw));
+  app.innerHTML = `
+    <div class="crumb"><a href="#/">Beranda</a> › Pencarian</div>
+    <h2 class="section">🔍 Hasil pencarian: "${q.replace(/</g,'&lt;')}"</h2>
+    ${hasil.length ? hasil.map(listItem).join('') : '<div class="empty">Materi tidak ditemukan. Coba kata kunci lain.</div>'}`;
+}
+
+/* ================= HELPER ================= */
+function listItem(m){
+  const j = JENJANG[m.jenjang];
+  return `<a class="list-item" href="#/materi/${m.id}">
+    <span class="badge">${j.nama} Kelas ${m.kelas} · ${m.mapel}</span>
+    <h3 style="margin:6px 0 2px">${m.judul}</h3>
+    <p style="color:var(--muted);font-size:.9rem">${m.ringkas}</p></a>`;
+}
+function ikonMapel(m){
+  const map = {"Al-Qur'an Hadis":'📖','Akidah Akhlak':'💚','Fikih':'🕋','SKI':'📜','Bahasa Arab':'🗣️',
+    'Pendidikan Agama Islam':'🕌','Matematika':'➗','IPA':'🔬','IPAS':'🌍','IPS':'🗺️','Fisika':'⚛️','Kimia':'🧪',
+    'Biologi':'🧬','Bahasa Indonesia':'🇮🇩','Bahasa Inggris':'🇬🇧','Informatika':'💻','Pendidikan Pancasila':'🦅'};
+  return map[m] || '📘';
+}
+function render404(){ app.innerHTML = '<div class="empty">Halaman tidak ditemukan.</div>'; }
+
+/* ================= DARK MODE ================= */
+const darkBtn = document.getElementById('darkBtn');
+if(localStorage.getItem('dark')==='1') document.body.classList.add('dark');
+darkBtn.onclick = ()=>{
+  document.body.classList.toggle('dark');
+  localStorage.setItem('dark', document.body.classList.contains('dark')?'1':'0');
+};
+</script>
+</body>
+</html>
